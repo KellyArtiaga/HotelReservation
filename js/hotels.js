@@ -5,7 +5,7 @@ const ClientTypePrice = require('./clientTypePrice');
 const Hotel = require('./hotel');
 
 class HotelRepository {
-    constructor(databasePath = '../resources/database.json') {
+    constructor(databasePath = '../data/database.json') {
         this.databasePath = databasePath;
     }
     fetchHotels() {

@@ -1,36 +1,47 @@
-const InputHandler = require("./src/userInputHandler");
-const BookingCalculator = require("./src/bookingCalculator");
 
-
-var firstName=document.contactForm.fname.value;
-var userType=document.contatForm.userType.value;
-
-document.writeln("You entered"+firstName+"for your first name");
-document.writeln("You entered"+userType+"for your last name");
-documetn.writeln("IS this correct?")
-
-class App {
-
-    constructor() {
-        this.inputHandler = new InputHandler();
-        this.calculator = new BookingCalculator();
+  
+   function AddElement() {
+        var date1 = new Date();
+        var date2 = new Date();
+        var date1 = $("#dateInput1").datepicker("getDate");
+        var date2 = $("#dateInput2").datepicker("getDate");
     }
 
-
-    cheaperHotel(data) {
-        try {
-            let input = this.inputHandler.extractValues(data);
-            console.log("output:" + this.calculator.cheaperPrice(input.clientType, input.dates))
-        } catch(error) {
-            console.log(error.message)
-        }
+    function submitForm() {
+        var name= document.forms[0].elements[0].value;
+        var data1= new Date(document.forms[0].elements[2].value);
+        var data2= new Date(document.forms[0].elements[3].value);
+        var resultado = document.forms[0].elements[0].value
+        console.log(name + data2  )
     }
 
-    showMenu() {
-        console.log("--------------------------------");
-        console.log("Digite os dados da reserva e pressione enter (ou s para sair):");
+// Save
+function saveIssue(e) {
+    var nameValue = document.getElementById('firstName').value;
+    var issueDate = document.getElementById('dateInput1').value;
+    var issueDesc = document.getElementById('dateInput2').value;
+    var userTypeValue = document.getElementById('userType').value;
+    var issue = {
+        name: nameValue,
+        date1: issueDate,
+        date2: issueDesc,
+        type: userTypeValue
     }
+    console.log(issue)
+
+    if (issue === null|| issue === 'undefined') {
+        var issues = [];
+        alert('Please, Fill in all fields')
+    } else {
+        var issues = JSON.parse(localStorage.getItem('issues'));
+        issues.push(issue);
+        localStorage.setItem('issues', JSON.stringify(issues));
+    }
+
+    document.getElementById('issueInputForm').reset();
+
+    fetchPosts();
+
+    e.preventDefault();
 }
 
-const app = new App()
-app.run();

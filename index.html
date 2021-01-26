@@ -20,27 +20,30 @@
             <img class="img-logo" src="assets/logo_big.png" />
         </div>
         <h5 class="title">Encontre o melhor hotel para você! </h5>
-        <form action="" method="get" id="contactForm" name="contactForm"class="form">
+        <form  id="issueInputForm" method="post" class="form">
             <div class="form-group">
                 <label class="form-label" for="first">Name</label>
                 <input id="firstName"  name="firstName" class="form-input" type="text" />
             </div>
             <div class="form-group">
-                <label class="form-label" for="last">User Type</label>
+                <label class="form-label">User Type</label>
                 <select id="userType" name="userType" class="form-input" type="select"></select>
             </div>
    
             <div class="form-group row p-0 m-0">
                 <div class="col-6 pl-0 pr-1" >
                     <label>Starting day</label>
-                    <input class="form-input" type="date" id="dateInput"name="dateInput" /></div> 
+                    <input class="form-input" type="date" id="dateInput1" name="dateInput1" /></div> 
                 <div class="col-6 pr-0  pl-1" >
                     <label>Ending day</label>
-                    <input class="form-input" type="date" id="dateInput"name="dateInput" /></div>
+                    <input class="form-input" type="date" id="dateInput2" name="dateInput2" /></div>
             </div><br>
-          <button class="btn btn-primary btn-block" type="submit" value="submit">Search...</button>
+          <button class="btn btn-primary btn-block" id="submit" type="button" onclick="saveIssue()" >Search...</button>
         </form>
       </div>
+      <ul id="myList">
+        
+      </ul>
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
